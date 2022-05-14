@@ -207,15 +207,15 @@ $(window).load(async function () {
 	});
 
 
-
+	// mint함수
 	async function setMint(hash_meta_url) {
 		if (mintingEvent != null) {
 			try {
 				var accounts = await web3.eth.getAccounts();
-				var receiptObj = await mintingEvent.methods.mintNFT(hash_meta_url).send({ from: accounts[0] });
+				var receiptObj = await mintingEvent.methods.mintNFT(hash_meta_url).send({ from: accounts[0] }); // 메타마스크 로그인 address, 폴리곤 네트워크 remix mintNFT함수 호출
 
 				console.log(receiptObj);
-				$("#resultbox").text("처리결과 \n" + JSON.stringify(receiptObj));
+				$("#resultbox").text("처리결과 \n" + JSON.stringify(receiptObj)); // json 형식 결과값 result형식으로 출력
 
 			} catch (error) {
 				console.log(error);
